@@ -9,19 +9,49 @@
         <!--Root View Controller-->
         <scene sceneID="dGL-Na-3lo">
             <objects>
-                <tableViewController id="Zqn-tT-gR5" sceneMemberID="viewController">
+                <tableViewController id="Zqn-tT-gR5" customClass="MainTableViewController" customModule="assesment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="phf-jQ-RTe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="wUr-dJ-EcM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" rowHeight="93" id="wUr-dJ-EcM" customClass="ShoppingCellTableViewCell" customModule="assesment2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wUr-dJ-EcM" id="z4D-kv-3HX">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igD-8D-H2t">
+                                            <rect key="frame" x="45" y="36" width="293" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vG-dH-x6B">
+                                            <rect key="frame" x="363" y="1" width="50" height="91"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="JhQ-M4-qa1"/>
+                                            </constraints>
+                                            <state key="normal" image="stop" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="8vG-dH-x6B" secondAttribute="bottom" constant="1" id="1ML-vD-YL7"/>
+                                        <constraint firstItem="8vG-dH-x6B" firstAttribute="top" secondItem="z4D-kv-3HX" secondAttribute="top" constant="1" id="3mk-6k-EA9"/>
+                                        <constraint firstItem="8vG-dH-x6B" firstAttribute="centerY" secondItem="z4D-kv-3HX" secondAttribute="centerY" id="4bf-EF-3SB"/>
+                                        <constraint firstItem="8vG-dH-x6B" firstAttribute="centerY" secondItem="z4D-kv-3HX" secondAttribute="centerY" id="ArI-xg-893"/>
+                                        <constraint firstAttribute="trailing" secondItem="8vG-dH-x6B" secondAttribute="trailing" constant="1" id="NHm-aO-UIm"/>
+                                        <constraint firstItem="8vG-dH-x6B" firstAttribute="leading" secondItem="igD-8D-H2t" secondAttribute="trailing" constant="25" id="O3U-ku-nyB"/>
+                                        <constraint firstItem="igD-8D-H2t" firstAttribute="leading" secondItem="z4D-kv-3HX" secondAttribute="leadingMargin" constant="25" id="i6b-bO-NHP"/>
+                                        <constraint firstItem="igD-8D-H2t" firstAttribute="centerY" secondItem="z4D-kv-3HX" secondAttribute="centerY" id="r6m-GY-7pF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemNameLabel" destination="igD-8D-H2t" id="rMC-Vk-Fev"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -29,9 +59,16 @@
                             <outlet property="delegate" destination="Zqn-tT-gR5" id="s9n-QB-xrj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EiF-JV-pyq"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="EiF-JV-pyq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IrR-Fm-c0w">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Goc-60-Rbd" id="9jA-0W-MBm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozg-Cb-pPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Goc-60-Rbd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="234.78260869565219" y="70.982142857142847"/>
         </scene>
@@ -52,4 +89,7 @@
             <point key="canvasLocation" x="-468" y="71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="stop" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
